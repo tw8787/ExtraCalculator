@@ -1,0 +1,201 @@
+﻿<Page x:Class="ExtraCalulator.Calculator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:ExtraCalulator"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <RelativePanel Grid.Column="1">
+                <Rectangle x:Name="CalculatorRectangle"
+                           Grid.Column="1"
+                           Height="90"
+                           Width="450"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           Stroke="Black"
+                           StrokeThickness="2" />
+
+                <TextBlock x:Name="CalculatorPreviousNumberTextBlock"
+                           FontSize="30"
+                           Foreground="Gray"
+                           Height="45"
+                           Margin="0,0,10,0"
+                           RelativePanel.Above="CalculatorRectangle"
+                           RelativePanel.AlignRightWithPanel="True" />
+            </RelativePanel>
+            
+            <TextBlock x:Name="CalculatorResultTextBlock"
+                       FontFamily="Arial Black"
+                       FontSize="80"
+                       Grid.Column="1"
+                       Height="90"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="15,0,15,0" />
+
+            <TextBlock x:Name="CalculatorOperatorTextBox"
+                       FontFamily="Arial Black"
+                       FontSize="60"
+                       Grid.Column="1"
+                       Height="70"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="15,0,0,10" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <RelativePanel Grid.Column="0">
+                <Button x:Name="SevenButton"
+                        Click="SevenButton_Click"
+                        Content="7"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="FourButton"
+                        Click="FourButton_Click"
+                        Content="4"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="SevenButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="OneButton"
+                        Click="OneButton_Click"
+                        Content="1"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="FourButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="ZeroButton"
+                        Click="ZeroButton_Click"
+                        Content="0"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="OneButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+            </RelativePanel>
+
+            <RelativePanel Grid.Column="1">
+                <Button x:Name="EightButton"
+                        Click="EightButton_Click"
+                        Content="8"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="FiveButton"
+                        Click="FiveButton_Click"
+                        Content="5"
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="EightButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="TwoButton"
+                        Click="TwoButton_Click"
+                        Content="2"
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="FiveButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="ClearButton"
+                        Click="ClearButton_Click"
+                        Content="C"
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="TwoButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+            </RelativePanel>
+
+            <RelativePanel Grid.Column="2">
+                <Button x:Name="NineButton"
+                        Click="NineButton_Click"
+                        Content="9"
+                        Margin="0,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button Name="SixButton"
+                        Click="SixButton_Click"
+                        Content="6"
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="NineButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="ThreeButton"
+                        Click="ThreeButton_Click"
+                        Content="3"
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="SixButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+
+                <Button x:Name="EqualsButton"
+                        Click="EqualsButton_Click"
+                        Content="="
+                        Margin="15,30,15,0"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="ThreeButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+            </RelativePanel>
+
+            <RelativePanel Grid.Column="3">
+                <Button x:Name="DivideButton"
+                        Click="DivideButton_Click"
+                        Content="/"
+                        Margin="15,30,0,0"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+                
+                <Button x:Name="MultiplyButton"
+                        Click="MultiplyButton_Click"
+                        Content="*"
+                        Margin="15,30,0,0"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.Below="DivideButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+                
+                <Button x:Name="SubtractButton"
+                        Click="SubtractButton_Click"
+                        Content="-"
+                        Margin="15,30,0,0"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.Below="MultiplyButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+                
+                <Button x:Name="AddButton"
+                        Click="AddButton_Click"
+                        Content="+"
+                        Margin="15,30,0,0"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.Below="SubtractButton"
+                        Style="{StaticResource CalculatorButtonStyle}" />
+            </RelativePanel>
+        </Grid>
+    </Grid>
+</Page>
